@@ -1,0 +1,80 @@
+{
+  name: "example",
+  root: [
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "SenseHat1",
+          name: "humidity",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 1,
+          to: "SenseHat1",
+          name: "showMessage",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "SenseHat3",
+          name: "temperature",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 1,
+          to: "SenseHat3",
+          name: "showMessage",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "SenseHat4",
+          name: "gyro",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 1,
+          to: "SenseHat4",
+          name: "showMessage",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+  ],
+  actions: {
+  },
+  functions: {
+  },
+  properties: {
+  },
+}

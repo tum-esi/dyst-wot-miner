@@ -1,0 +1,75 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:SenseHat1:",
+    "@type": "Thing",
+    "title": "example",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {
+        "SenseHat1": {
+            "$id": "#SenseHat1",
+            "base": "example://-",
+            "properties": {
+                "temperature": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat1/properties/temperature",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat1/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        }
+    },
+    "variables": {},
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat1/properties/temperature/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat1/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+{
+  name: "nfa",
+  states: [
+    {
+      label: "·0·",
+      isFinal: false,
+      isInitial: true,
+      transitions: [
+        {
+          loop: false,
+          to: "·3·",
+          symbol: [
+            "·1·2·3·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·3·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·4·",
+          symbol: [
+            "·4·",
+          ],
+        },
+        {
+          loop: false,
+          to: "·12·",
+          symbol: [
+            "·10·11·12·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·4·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·6·",
+          symbol: [
+            "·5·6·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·6·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·4·",
+          symbol: [
+            "·4·",
+          ],
+        },
+        {
+          loop: false,
+          to: "·9·",
+          symbol: [
+            "·7·8·9·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·9·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+    {
+      label: "·12·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+  ],
+}

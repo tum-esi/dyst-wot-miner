@@ -1,0 +1,19 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "SenseHat3" : readProperty: "temperature"
+        activate "SenseHat3"
+        "SenseHat3" --> "Agent" : response
+        deactivate "SenseHat3"
+    end
+    par
+        "Agent" -> "SenseHat3" : invokeAction: "showMessage"
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

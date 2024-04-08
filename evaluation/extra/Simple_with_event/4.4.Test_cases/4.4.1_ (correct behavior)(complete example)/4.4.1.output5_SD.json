@@ -1,0 +1,75 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:VirtualCoffeeMachine11:",
+    "@type": "Thing",
+    "title": "example",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {       
+        "Virtual-Coffee-Machine_1_1": {
+            "$id": "#Virtual-Coffee-Machine_1_1",
+            "base": "example://-",
+            "properties": {},
+            "actions": {
+                "shutdown": {
+                    "forms": [
+                        {
+                            "href": "http://esiremotelab.esi.ei.tum.de:8080/Virtual-Coffee-Machine_1_1/actions/shutdown",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "maintenance": {
+                    "forms": [
+                        {
+                            "href": "http://esiremotelab.esi.ei.tum.de:8080/Virtual-Coffee-Machine_1_1/events/maintenance",
+                            "contentType": "application/json",
+                            "subprotocol": "longpoll",
+                            "op": "subscribeevent"
+                        }
+                    ]
+                }
+            }
+        },        
+    },
+    "variables": {},
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#Virtual-Coffee-Machine_1_1/events/maintenance/forms/0"
+                    },
+                    "op": "subscribeevent"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#Virtual-Coffee-Machine_1_1/actions/shutdown/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        }
+    ]
+}

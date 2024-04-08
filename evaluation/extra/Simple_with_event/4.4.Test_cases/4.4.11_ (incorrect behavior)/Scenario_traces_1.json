@@ -1,0 +1,24 @@
+[    {
+        "interactionId": 1,
+        "messagePairId": 1,
+        "timeStamp": "2021-06-28T20:46:11.791Z",
+        "operation": "subscribeevent",
+        "affordance": {
+            "name": "maintenance",
+            "type": "event"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "de:tum:ei:esi:fp:coffee:1-4",
+            "thingTitle": "Virtual-Coffee-Machine_1_4"
+        }
+    },
+    {
+        "interactionId": 2,
+        "messagePairId": 1,
+        "timeStamp": "2021-06-28T20:46:16.265Z",
+        "recipient": {
+            "type": "controller"
+        }
+    }
+	]

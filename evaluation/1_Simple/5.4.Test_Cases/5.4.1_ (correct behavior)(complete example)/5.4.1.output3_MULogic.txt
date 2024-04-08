@@ -1,0 +1,34 @@
+{
+  name: "example",
+  root: [
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "SenseHat2",
+          name: "temperature",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 1,
+          to: "SenseHat2",
+          name: "showMessage",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+  ],
+  actions: {
+  },
+  functions: {
+  },
+  properties: {
+  },
+}

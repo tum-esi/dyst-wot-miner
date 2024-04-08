@@ -1,0 +1,219 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:SenseHat1SenseHat2SenseHat3SenseHat4:",
+    "@type": "Thing",
+    "title": "sequential",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {
+        "SenseHat1": {
+            "$id": "#SenseHat1",
+            "base": "example://-",
+            "properties": {
+                "humidity": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat1/properties/humidity",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat1/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "SenseHat2": {
+            "$id": "#SenseHat2",
+            "base": "example://-",
+            "properties": {
+                "pressure": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat2/properties/pressure",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat2/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "SenseHat3": {
+            "$id": "#SenseHat3",
+            "base": "example://-",
+            "properties": {
+                "temperature": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat3/properties/temperature",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat3/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "SenseHat4": {
+            "$id": "#SenseHat4",
+            "base": "example://-",
+            "properties": {
+                "gyro": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat4/properties/gyro",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat4/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        }
+    },
+    "variables": {},
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat1/properties/humidity/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat1/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat2/properties/pressure/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat2/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat3/properties/temperature/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat3/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat4/properties/gyro/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat4/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        }
+    ]
+}

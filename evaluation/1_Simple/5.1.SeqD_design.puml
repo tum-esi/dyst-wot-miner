@@ -1,0 +1,17 @@
+@startuml senseHatTempDisplay
+[->"Agent": top:senseHatTempDisplay()
+activate "Agent"
+group strict
+    par
+        "Agent" -> "SenseHat1" : readProperty: "temperature"
+        activate "SenseHat1"
+        "SenseHat1" --> "Agent" : response
+        deactivate "SenseHat1"
+    end
+    par
+        "Agent" -> "SenseHat1" : invokeAction: "showMessage"
+    end
+end
+[<-"Agent"
+deactivate "Agent"
+@enduml

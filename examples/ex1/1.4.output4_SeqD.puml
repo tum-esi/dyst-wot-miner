@@ -1,0 +1,76 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : response
+        deactivate "VirtualCoffeeMachine"
+    end
+    par
+        "Agent" -> "TestThing" : writeProperty: "string"
+    end
+end
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "maintenance"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : confirmation
+        "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+    end
+    par
+        "Agent" -> "TestThing" : writeProperty: "int"
+    end
+end
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "error"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : confirmation
+        "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+    end
+    par
+        "Agent" -> "TestThing" : writeProperty: "bool"
+    end
+end
+loop 0x
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : response
+            deactivate "VirtualCoffeeMachine"
+        end
+        par
+            "Agent" -> "TestThing" : writeProperty: "string"
+        end
+    end
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "maintenance"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : confirmation
+            "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "TestThing" : writeProperty: "int"
+        end
+    end
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "error"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : confirmation
+            "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "TestThing" : writeProperty: "bool"
+        end
+    end
+end
+ 
+[<-"Agent"
+deactivate "Agent"
+@enduml

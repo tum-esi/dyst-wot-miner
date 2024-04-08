@@ -1,0 +1,56 @@
+[
+    {
+        "interactionId": 1,
+        "messagePairId": 1,
+        "timeStamp": "2021-07-07T20:36:50.077Z",
+        "operation": "readproperty",
+        "affordance": {
+            "name": "temperature",
+            "type": "property"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat3"
+        },
+    },
+    {
+        "interactionId": 2,
+        "messagePairId": 1,
+        "timeStamp": "2021-07-07T20:36:50.206Z",
+        "recipient": {
+            "type": "controller"
+        },
+        "payload": 39.76432418823242
+    },
+    {
+        "interactionId": 3,
+        "messagePairId": 2,
+        "timeStamp": "2021-07-07T20:36:50.207Z",
+        "operation": "invokeaction",
+        "affordance": {
+            "name": "flashMessage",
+            "type": "action"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat3"
+        }
+    },
+    {
+        "interactionId": 3,
+        "messagePairId": 4,
+        "timeStamp": "2021-07-07T20:37:00.213Z",
+        "operation": "invokeaction",
+        "affordance": {
+            "name": "flashMessage",
+            "type": "action"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat3"
+        }
+    }
+]

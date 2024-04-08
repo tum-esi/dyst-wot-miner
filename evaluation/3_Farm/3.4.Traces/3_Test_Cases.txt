@@ -1,0 +1,4 @@
+Test Case 1: Correct traces
+Test Case 2: Wrong control flow (there is not an else in the first case element)
+Test Case 3: Wrong control flow (one loop)
+Test Case 4: Stop wrong Sprinkler

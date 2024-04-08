@@ -1,0 +1,80 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "Sprinkler1" : readProperty: "status"
+        activate "Sprinkler1"
+        "Sprinkler1" --> "Agent" : response
+        deactivate "Sprinkler1"
+    end
+    par
+        "Agent" -> "UnicornPHAT1" : invokeAction: "fillColor"
+    end
+end
+alt variable unknown
+    group strict
+        par
+            "Agent" -> "SoilSensor0" : readProperty: "moisture"
+            activate "SoilSensor0"
+            "SoilSensor0" --> "Agent" : response
+            deactivate "SoilSensor0"
+        end
+        par
+            "Agent" -> "SenseHat2" : invokeAction: "showMessage"
+        end
+    end
+else else
+    group strict
+        par
+            "Agent" -> "SoilSensor0" : subscribeEvent: "tooDry"
+            activate "SoilSensor0"
+            "SoilSensor0" --> "Agent" : confirmation
+            "SoilSensor0" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "Sprinkler1" : invokeAction: "startSprinkler"
+        end
+    end
+end
+group strict
+    par
+        "Agent" -> "UnicornPHAT1" : readProperty: "pixels"
+        activate "UnicornPHAT1"
+        "UnicornPHAT1" --> "Agent" : response
+        deactivate "UnicornPHAT1"
+    end
+    par
+        "Agent" -> "UnicornPHAT1" : invokeAction: "fillRandom"
+    end
+end
+alt variable unknown
+    group strict
+        par
+            "Agent" -> "SenseHat2" : readProperty: "pixels"
+            activate "SenseHat2"
+            "SenseHat2" --> "Agent" : response
+            deactivate "SenseHat2"
+        end
+        par
+            "Agent" -> "Sprinkler1" : invokeAction: "stopSprinkler"
+        end
+    end
+else else
+    group strict
+        par
+            "Agent" -> "SoilSensor1" : readProperty: "moisture"
+            activate "SoilSensor1"
+            "SoilSensor1" --> "Agent" : response
+            deactivate "SoilSensor1"
+        end
+        par
+            "Agent" -> "SenseHat3" : invokeAction: "showMessage"
+        end
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

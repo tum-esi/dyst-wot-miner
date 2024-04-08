@@ -1,0 +1,54 @@
+{
+  name: "5_incorrect",
+  states: [
+    {
+      label: "·0·",
+      isFinal: false,
+      isInitial: true,
+      transitions: [
+        {
+          loop: false,
+          to: "·1·",
+          symbol: [
+            "·1·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·1·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: true,
+          to: "·1·",
+          symbol: [
+            "·1·",
+          ],
+        },
+        {
+          loop: false,
+          to: "·3·",
+          symbol: [
+            "·3·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·3·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+        {
+          loop: true,
+          to: "·3·",
+          symbol: [
+            "·3·",
+          ],
+        },
+      ],
+    },
+  ],
+}

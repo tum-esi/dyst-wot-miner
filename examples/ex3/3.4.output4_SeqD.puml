@@ -1,0 +1,68 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "TestThing" : readProperty: "bool"
+        activate "TestThing"
+        "TestThing" --> "Agent" : response
+        deactivate "TestThing"
+    end
+    par
+        "Agent" -> "TestThing" : writeProperty: "num"
+    end
+end
+alt variable unknown
+    group strict
+        par
+            "Agent" -> "TestThing" : readProperty: "int"
+            activate "TestThing"
+            "TestThing" --> "Agent" : response
+            deactivate "TestThing"
+        end
+        par
+            "Agent" -> "TestThing" : invokeAction: "int-string"
+        end
+    end
+    loop 3x
+        group strict
+            par
+                "Agent" -> "TestThing" : readProperty: "int"
+                activate "TestThing"
+                "TestThing" --> "Agent" : response
+                deactivate "TestThing"
+            end
+            par
+                "Agent" -> "TestThing" : invokeAction: "int-string"
+            end
+        end
+    end
+    group strict
+        par
+            "Agent" -> "TestThing" : readProperty: "object"
+            activate "TestThing"
+            "TestThing" --> "Agent" : response
+            deactivate "TestThing"
+        end
+        par
+            "Agent" -> "TestThing" : invokeAction: "obj-void"
+        end
+    end
+else else
+    group strict
+        par
+            "Agent" -> "TestThing" : subscribeEvent: "on-bool"
+            activate "TestThing"
+            "TestThing" --> "Agent" : confirmation
+            "TestThing" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "TestThing" : writeProperty: "object"
+        end
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

@@ -1,0 +1,41 @@
+[
+    {
+        "affordance": {
+            "name": "temperature",
+            "type": "property"
+        },
+        "interactionId": 1,
+        "messagePairId": 1,
+        "operation": "readproperty",
+        "recipient": {
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat3",
+            "type": "thing"
+        },
+        "timeStamp": "2021-07-19T14:34:02.274Z"
+    },
+    {
+        "interactionId": 2,
+        "messagePairId": 1,
+        "payload": 40.18194580078125,
+        "recipient": {
+            "type": "controller"
+        },
+        "timeStamp": "2021-07-19T14:34:02.432Z"
+    },
+    {
+        "affordance": {
+            "name": "showMessage",
+            "type": "action"
+        },
+        "interactionId": 3,
+        "messagePairId": 2,
+        "operation": "invokeaction",
+        "recipient": {
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat3",
+            "type": "thing"
+        },
+        "timeStamp": "2021-07-19T14:34:02.433Z"
+    }
+]

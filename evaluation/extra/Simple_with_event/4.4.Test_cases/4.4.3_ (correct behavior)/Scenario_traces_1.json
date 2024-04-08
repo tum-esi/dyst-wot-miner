@@ -1,0 +1,42 @@
+[
+{
+        "interactionId": 1,
+        "operation": "subscribeevent",
+        "affordance": {
+            "type": "event",
+            "name": "maintenance"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "de:tum:ei:esi:fp:coffee:1-1",
+            "thingTitle": "Virtual-Coffee-Machine_1_1"
+        },
+        "messagePairId": 1,
+        "timeStamp": "2021-06-30T19:40:41.423Z"
+    },
+    {
+        "interactionId": 2,
+		"payload":"ea",
+        "recipient": {
+            "type": "controller"
+        },
+        "messagePairId": 1,
+        "timeStamp": "2021-06-30T19:40:50.459Z"
+    },
+    {
+        "interactionId": 3,
+        "operation": "invokeaction",
+        "affordance": {
+            "type": "action",
+            "name": "shutdown"
+        },
+        "recipient": {
+            "type": "thing",
+            "thingId": "de:tum:ei:esi:fp:coffee:1-1",
+            "thingTitle": "Virtual-Coffee-Machine_1_1"
+        },
+        "messagePairId": 2,
+        "timeStamp": "2021-06-30T19:40:50.481Z"
+    }
+	
+	 ]

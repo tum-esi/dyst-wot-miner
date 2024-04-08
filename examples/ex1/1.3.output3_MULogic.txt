@@ -1,0 +1,150 @@
+{
+  name: "exampledfa",
+  root: [
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "VirtualCoffeeMachine",
+          name: "waterStatus",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 3,
+          to: "TestThing",
+          name: "string",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+    {
+      type: "loop",
+      content: [
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 2,
+              to: "VirtualCoffeeMachine",
+              name: "waterStatus",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 3,
+              to: "TestThing",
+              name: "string",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+      ],
+      loopOpts: {
+        type: 1,
+        exCount: 2,
+      },
+    },
+    {
+      type: "case",
+      content: [
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 0,
+              to: "VirtualCoffeeMachine",
+              name: "maintenance",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 3,
+              to: "TestThing",
+              name: "int",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+      ],
+      elseContent: [
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 0,
+              to: "VirtualCoffeeMachine",
+              name: "error",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 3,
+              to: "TestThing",
+              name: "bool",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+      ],
+      condition: {
+        type: "var",
+        variable: {
+          name: "unknown",
+          type: "variable",
+        },
+        value: undefined,
+      },
+    },
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "VirtualCoffeeMachine",
+          name: "coffeeStatus",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 3,
+          to: "TestThing",
+          name: "num",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+  ],
+  actions: {
+  },
+  functions: {
+  },
+  properties: {
+  },
+}

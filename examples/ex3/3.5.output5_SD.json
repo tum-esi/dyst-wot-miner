@@ -1,0 +1,237 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:VirtualCoffeeMachineTestThing:",
+    "@type": "Thing",
+    "title": "example",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {
+        "VirtualCoffeeMachine": {
+            "$id": "#VirtualCoffeeMachine",
+            "base": "example://-",
+            "properties": {},
+            "actions": {},
+            "events": {}
+        },
+        "TestThing": {
+            "$id": "#TestThing",
+            "base": "example://-",
+            "properties": {
+                "bool": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/properties/bool",
+                            "contentType": "application/json",
+                            "op": "readproperty"
+                        }
+                    ]
+                },
+                "num": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/properties/num",
+                            "contentType": "application/json",
+                            "op": "writeproperty"
+                        }
+                    ]
+                },
+                "int": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/properties/int",
+                            "contentType": "application/json",
+                            "op": "readproperty"
+                        }
+                    ]
+                },
+                "object": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/properties/object",
+                            "contentType": "application/json",
+                            "op": [
+                                "writeproperty",
+                                "readproperty"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "int-string": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/actions/int-string",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                },
+                "obj-void": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/actions/obj-void",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "on-bool": {
+                    "forms": [
+                        {
+                            "href": "http://plugfest.thingweb.io:8083/TestThing/events/on-bool",
+                            "contentType": "application/json",
+                            "subprotocol": "longpoll",
+                            "op": "subscribeevent"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "variables": {
+        "unknown": {
+            "type": "boolean"
+        }
+    },
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#TestThing/properties/bool/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#TestThing/properties/num/forms/0"
+                    },
+                    "op": "writeproperty"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "case": {
+                "if": {
+                    "get": {
+                        "$ref": "#/variables/unknown"
+                    }
+                },
+                "then": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/properties/int/forms/0"
+                                    },
+                                    "op": "readproperty"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/actions/int-string/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        },
+                        {
+                            "loop": {
+                                "type": "logical",
+                                "defaultInput": 3,
+                                "path": [
+                                    {
+                                        "receive": [
+                                            {
+                                                "form": {
+                                                    "$ref": "#TestThing/properties/int/forms/0"
+                                                },
+                                                "op": "readproperty"
+                                            }
+                                        ],
+                                        "send": [
+                                            {
+                                                "form": {
+                                                    "$ref": "#TestThing/actions/int-string/forms/0"
+                                                },
+                                                "op": "invokeaction"
+                                            }
+                                        ],
+                                        "breakOnDataPushed": false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/properties/object/forms/0"
+                                    },
+                                    "op": "readproperty"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/actions/obj-void/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        }
+                    ]
+                },
+                "else": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/events/on-bool/forms/0"
+                                    },
+                                    "op": "subscribeevent"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#TestThing/properties/object/forms/0"
+                                    },
+                                    "op": "writeproperty"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

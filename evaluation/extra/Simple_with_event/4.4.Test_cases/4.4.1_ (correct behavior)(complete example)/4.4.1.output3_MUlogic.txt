@@ -1,0 +1,34 @@
+{
+  name: "1_correct",
+  root: [
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 0,
+          to: "Virtual-Coffee-Machine_1_1",
+          name: "maintenance",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 1,
+          to: "Virtual-Coffee-Machine_1_1",
+          name: "shutdown",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+  ],
+  actions: {
+  },
+  functions: {
+  },
+  properties: {
+  },
+}

@@ -1,0 +1,4 @@
+Test case 1: Correct traces
+Test case 2: Worng order of events
+Test case 3: Missing one element
+Test case 4: Wrong control flow (all the interactions are repeated in a loop)

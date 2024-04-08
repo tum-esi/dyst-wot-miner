@@ -1,0 +1,41 @@
+[
+{
+    "interactionId": 1,
+    "operation": "subscribeevent",
+    "affordance": {
+      "type": "event",
+      "name": "maintenance"
+    },
+    "messagePairId": 1,
+    "recipient": {
+      "type": "thing",
+      "thingId": "de:tum:ei:esi:fp:coffee:1-3",
+      "thingTitle": "Virtual-Coffee-Machine_1_3"
+    },
+    "timeStamp": "2021-06-16T11:30:16.304Z"
+  },
+  {
+    "interactionId": 2,
+    "recipient": {
+      "type": "controller"
+    },
+	"payload": "reprehenderit",
+	"messagePairId": 1,
+    "timeStamp": "2021-06-16T11:30:21.304Z",
+  },
+  {
+    "interactionId": 3,
+    "operation": "invokeaction",
+    "affordance": {
+      "type": "action",
+      "name": "shutdown"
+    },
+    "messagePairId": 2,
+    "recipient": {
+      "type": "thing",
+      "thingId": "de:tum:ei:esi:fp:coffee:1-3",
+      "thingTitle": "Virtual-Coffee-Machine_1_3"
+    },
+    "timeStamp": "2021-06-16T11:30:21.315Z"
+  }
+  ]

@@ -1,0 +1,79 @@
+//Input: Traces and interactionList
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+  {
+    interactionId: 1,
+    operation: "invokeaction",
+    affordance: {
+      type: "action",
+      name: "clear",
+    },
+    payload: "undefined",
+    recipient: {
+      type: "thing",
+      thingId: "urn:dev:ops:32473-sensehat-004",
+      thingTitle: "SenseHat4",
+    },
+    messagePairId: 1,
+    timeStamp: "2021-07-18T16:26:28.039Z",
+  },
+  {
+    interactionId: 2,
+    payload: 40.80787658691406,
+    recipient: {
+      type: "controller",
+    },
+    messagePairId: 1,
+    timeStamp: "2021-07-18T16:26:28.125Z",
+  },
+  {
+    interactionId: 3,
+    operation: "invokeaction",
+    affordance: {
+      type: "action",
+      name: "showMessage",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "urn:dev:ops:32473-sensehat-004",
+      thingTitle: "SenseHat4",
+    },
+    messagePairId: 2,
+    timeStamp: "2021-07-18T16:26:30.141Z",
+  },
+     {
+      "interactionId":4,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"clear"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-004",
+         "thingTitle":"SenseHat4"
+      },
+      "messagePairId":3,
+      "timeStamp":"2021-07-18T16:26:30.191Z"
+   },
+];
+
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 3 },
+    { interactionId: 4 }
+  ],
+];

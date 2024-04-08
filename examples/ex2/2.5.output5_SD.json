@@ -1,0 +1,209 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:VirtualCoffeeMachineTestThing:",
+    "@type": "Thing",
+    "title": "example",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {
+        "VirtualCoffeeMachine": {
+            "$id": "#VirtualCoffeeMachine",
+            "base": "example://-",
+            "properties": {
+                "waterStatus": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/properties/waterStatus",
+                            "contentType": "application/json",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                },
+                "binStatus": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/properties/binStatus",
+                            "contentType": "application/json",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "abort": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/actions/abort",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                },
+                "brew": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/actions/brew",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                },
+                "shutdown": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/actions/shutdown",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {
+                "error": {
+                    "forms": [
+                        {
+                            "href": "http://127.0.0.1:80/VirtualCoffeeMachine/events/error",
+                            "contentType": "application/json",
+                            "subprotocol": "longpoll",
+                            "op": "subscribeevent"
+                        }
+                    ]
+                }
+            }
+        },
+        "TestThing": {
+            "$id": "#TestThing",
+            "base": "example://-",
+            "properties": {},
+            "actions": {},
+            "events": {}
+        }
+    },
+    "variables": {
+        "unknown": {
+            "type": "boolean"
+        }
+    },
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "case": {
+                "if": {
+                    "get": {
+                        "$ref": "#/variables/unknown"
+                    }
+                },
+                "then": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#VirtualCoffeeMachine/events/error/forms/0"
+                                    },
+                                    "op": "subscribeevent"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#VirtualCoffeeMachine/actions/abort/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        }
+                    ]
+                },
+                "else": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#VirtualCoffeeMachine/properties/waterStatus/forms/0"
+                                    },
+                                    "op": "readproperty"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#VirtualCoffeeMachine/actions/brew/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        },
+                        {
+                            "loop": {
+                                "type": "logical",
+                                "defaultInput": 3,
+                                "path": [
+                                    {
+                                        "receive": [
+                                            {
+                                                "form": {
+                                                    "$ref": "#VirtualCoffeeMachine/properties/waterStatus/forms/0"
+                                                },
+                                                "op": "readproperty"
+                                            }
+                                        ],
+                                        "send": [
+                                            {
+                                                "form": {
+                                                    "$ref": "#VirtualCoffeeMachine/actions/brew/forms/0"
+                                                },
+                                                "op": "invokeaction"
+                                            }
+                                        ],
+                                        "breakOnDataPushed": false
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#VirtualCoffeeMachine/properties/binStatus/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#VirtualCoffeeMachine/actions/shutdown/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        }
+    ]
+}

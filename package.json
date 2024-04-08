@@ -1,0 +1,30 @@
+{
+  "name": "wot-miner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/test.js",
+  "scripts": {
+    "test": "npm run build & npm start",
+    "build": "tsc",
+    "start": "node ./dist/src/test.js"
+  },
+  "author": {
+    "name": "TUM-ESI"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tum-esi/dyst-wot-miner.git"
+  },
+  "license": "",
+  "devDependencies": {
+    "@types/node": "13.5.0",
+    "js-beautify": "1.10.3",
+    "typescript": "3.9.7",
+    "wot-typescript-definitions": "0.7.1-SNAPSHOT.1"
+  },
+  "dependencies": {
+    "nfa-to-dfa": "1.0.7",
+    "noam": "git+https://github.com/izuzak/noam.git",
+    "system-description": "git+https://github.com/tum-esi/wot-system-description.git"
+  }
+}

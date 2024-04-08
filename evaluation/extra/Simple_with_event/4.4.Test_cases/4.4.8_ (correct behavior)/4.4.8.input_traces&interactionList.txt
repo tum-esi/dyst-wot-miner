@@ -1,0 +1,53 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+  {
+	"interactionId": 1,
+    "timeStamp": "2021-06-30T19:00:48.258Z",
+    "affordance": {
+      "name": "maintenance",
+      "type": "event"
+    },
+    "recipient": {
+      "thingId": "de:tum:ei:esi:fp:coffee:1-13",
+      "thingTitle": "Virtual-Coffee-Machine_1_13",
+      "type": "thing"
+    },
+    "operation": "subscribeevent",
+    "messagePairId": 1,
+    
+  },
+  {
+	"interactionId": 2,
+    "timeStamp": "2021-06-30T19:00:48.894Z",
+    "recipient": {
+      "type": "controller"
+    },
+    "messagePairId": 1,
+    "payload": "non in et minim Lorem",
+    
+  },
+  {
+	"interactionId": 3,
+    "timeStamp": "2021-06-30T19:00:48.895Z",
+    "affordance": {
+      "name": "shutdown",
+      "type": "action"
+    },
+    "recipient": {
+      "thingId": "de:tum:ei:esi:fp:coffee:1-13",
+      "thingTitle": "Virtual-Coffee-Machine_1_13",
+      "type": "thing"
+    },
+    "operation": "invokeaction",
+    "messagePairId": 2,
+  }
+]
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+  ]
+]

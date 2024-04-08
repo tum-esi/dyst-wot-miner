@@ -1,0 +1,150 @@
+{
+  name: "example",
+  root: [
+    {
+      type: "interact",
+      receiveIntrcts: [
+        {
+          direction: 0,
+          type: 2,
+          to: "TestThing",
+          name: "bool",
+          set: undefined,
+        },
+      ],
+      sendIntrcts: [
+        {
+          direction: 1,
+          type: 3,
+          to: "TestThing",
+          name: "num",
+          get: undefined,
+          defaultInput: undefined,
+        },
+      ],
+      breakOnDataPushed: false,
+    },
+    {
+      type: "case",
+      content: [
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 2,
+              to: "TestThing",
+              name: "int",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 1,
+              to: "TestThing",
+              name: "int-string",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+        {
+          type: "loop",
+          content: [
+            {
+              type: "interact",
+              receiveIntrcts: [
+                {
+                  direction: 0,
+                  type: 2,
+                  to: "TestThing",
+                  name: "int",
+                  set: undefined,
+                },
+              ],
+              sendIntrcts: [
+                {
+                  direction: 1,
+                  type: 1,
+                  to: "TestThing",
+                  name: "int-string",
+                  get: undefined,
+                  defaultInput: undefined,
+                },
+              ],
+              breakOnDataPushed: false,
+            },
+          ],
+          loopOpts: {
+            type: 1,
+            exCount: 3,
+          },
+        },
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 2,
+              to: "TestThing",
+              name: "object",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 1,
+              to: "TestThing",
+              name: "obj-void",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+      ],
+      elseContent: [
+        {
+          type: "interact",
+          receiveIntrcts: [
+            {
+              direction: 0,
+              type: 0,
+              to: "TestThing",
+              name: "on-bool",
+              set: undefined,
+            },
+          ],
+          sendIntrcts: [
+            {
+              direction: 1,
+              type: 3,
+              to: "TestThing",
+              name: "object",
+              get: undefined,
+              defaultInput: undefined,
+            },
+          ],
+          breakOnDataPushed: false,
+        },
+      ],
+      condition: {
+        type: "var",
+        variable: {
+          name: "unknown",
+          type: "variable",
+        },
+        value: undefined,
+      },
+    },
+  ],
+  actions: {
+  },
+  functions: {
+  },
+  properties: {
+  },
+}

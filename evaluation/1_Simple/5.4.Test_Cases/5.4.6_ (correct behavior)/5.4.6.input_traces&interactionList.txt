@@ -1,0 +1,52 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+	{
+		"interactionId": 1,
+		"operation": "readproperty",
+		"affordance": {
+			"type": "property",
+			"name": "temperature"
+		},
+		"recipient": {
+			"type": "thing",
+			"thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+			"thingTitle": "SenseHat3"
+		},
+		"messagePairId": 1,
+		"timeStamp": "2021-07-12T21:24:01.84"
+	},
+	{
+		"interactionId": 2,
+		"recipient": {
+			"type": "controller"
+		},
+		"messagePairId": 1,
+		"timeStamp": "2021-07-12T21:24:02.07",
+		"payload": 42.725643157958984
+	},
+	{
+		"interactionId": 3,
+		"operation": "invokeaction",
+		"affordance": {
+			"type": "action",
+			"name": "showMessage"
+		},
+		"recipient": {
+			"type": "thing",
+			"thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+			"thingTitle": "SenseHat3"
+		},
+		"messagePairId": 2,
+		"timeStamp": "2021-07-12T21:24:02.07",
+	}
+]
+
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+  ]
+]

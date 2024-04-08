@@ -1,0 +1,196 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+   {
+      "interactionId":1,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"panPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-18T11:24:53.806"
+   },
+   {
+      "interactionId":2,
+      "payload":10,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-18T11:24:53.807"
+   },
+   {
+      "interactionId":3,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"panTo"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":2,
+      "timeStamp":"2021-07-18T11:24:53.815"
+   },
+   {
+      "interactionId":4,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"panPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:2",
+         "thingTitle":"PanTilt2"
+      },
+      "messagePairId":9,
+      "timeStamp":"2021-07-18T11:24:57.33"
+   },
+   {
+      "interactionId":5,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":9,
+      "timeStamp":"2021-07-18T11:24:57.33"
+   },
+   {
+      "interactionId":6,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"writeDisplay"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-rainbowhat-001",
+         "thingTitle":"RainbowHAT1"
+      },
+      "messagePairId":10,
+      "timeStamp":"2021-07-18T11:24:57.45"
+   },
+   {
+      "interactionId":7,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"tiltPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":11,
+      "timeStamp":"2021-07-18T11:24:57.203"
+   },
+   {
+      "interactionId":8,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":11,
+      "timeStamp":"2021-07-18T11:24:57.203"
+   },
+   {
+      "interactionId":9,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"tiltTo"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":12,
+      "timeStamp":"2021-07-18T11:24:57.211"
+   },
+   {
+      "interactionId":10,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"tiltPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:2",
+         "thingTitle":"PanTilt2"
+      },
+      "messagePairId":19,
+      "timeStamp":"2021-07-18T11:24:59.390"
+   },
+   {
+      "interactionId":11,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":19,
+      "timeStamp":"2021-07-18T11:24:59.390"
+   },
+   {
+      "interactionId":12,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"writeDisplay"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-rainbowhat-002",
+         "thingTitle":"RainbowHAT2"
+      },
+      "messagePairId":20,
+      "timeStamp":"2021-07-18T11:24:59.399"
+   }
+]
+
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+    { interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+	{ interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+	{ interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+	{ interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+	{ interactionId: 10 },
+	{ interactionId: 11 },
+	{ interactionId: 12 }
+  ]
+]

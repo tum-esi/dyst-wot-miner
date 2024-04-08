@@ -1,0 +1,52 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "PanTilt1" : readProperty: "panPosition"
+        activate "PanTilt1"
+        "PanTilt1" --> "Agent" : response
+        deactivate "PanTilt1"
+    end
+    par
+        "Agent" -> "PanTilt1" : invokeAction: "panTo"
+    end
+end
+group strict
+    par
+        "Agent" -> "PanTilt2" : readProperty: "panPosition"
+        activate "PanTilt2"
+        "PanTilt2" --> "Agent" : response
+        deactivate "PanTilt2"
+    end
+    par
+        "Agent" -> "RainbowHAT1" : invokeAction: "writeDisplay"
+    end
+end
+group strict
+    par
+        "Agent" -> "PanTilt1" : readProperty: "tiltPosition"
+        activate "PanTilt1"
+        "PanTilt1" --> "Agent" : response
+        deactivate "PanTilt1"
+    end
+    par
+        "Agent" -> "PanTilt1" : invokeAction: "tiltTo"
+    end
+end
+group strict
+    par
+        "Agent" -> "PanTilt2" : readProperty: "tiltPosition"
+        activate "PanTilt2"
+        "PanTilt2" --> "Agent" : response
+        deactivate "PanTilt2"
+    end
+    par
+        "Agent" -> "RainbowHAT2" : invokeAction: "writeDisplay"
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

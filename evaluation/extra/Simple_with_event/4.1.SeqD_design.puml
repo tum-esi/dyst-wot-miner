@@ -1,0 +1,18 @@
+@startuml callTheRepairman
+[->"Agent": top:callTheRepairman()
+activate "Agent"
+group strict
+    par
+
+        "Agent" -> "Virtual-Coffee-Machine_1_1" : subscribeEvent: "maintenance"
+        activate "Virtual-Coffee-Machine_1_1"
+        "Virtual-Coffee-Machine_1_1" --> "Agent" : confirmation
+        "Virtual-Coffee-Machine_1_1" ->> "Agent" : data-pushed
+    end
+    par
+        "Agent" -> "Virtual-Coffee-Machine_1_1" : invokeAction: "shutdown"
+    end
+end
+[<-"Agent"
+deactivate "Agent"
+@enduml

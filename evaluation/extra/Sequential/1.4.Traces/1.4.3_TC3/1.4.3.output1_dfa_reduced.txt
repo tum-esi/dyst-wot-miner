@@ -1,0 +1,26 @@
+{
+  name: "dfa",
+  states: [
+    {
+      label: "·0·",
+      isFinal: false,
+      isInitial: true,
+      transitions: [
+        {
+          loop: false,
+          to: "·9·",
+          symbol: [
+            "·1·2·3·4·5·6·7·8·9·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·9·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+  ],
+}

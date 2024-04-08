@@ -1,0 +1,68 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+    {
+        "interactionId": 1,
+        "operation": "readProperty",
+        "affordance": {
+            "type": "property",
+            "name": "temperature"
+        },
+        "messagePairId": 1,
+        "timeStamp": "2021-07-18T12:50:13.325Z",
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat2"
+        }
+    },
+    {
+        "interactionId": 2,
+        "messagePairId": 1,
+        "timeStamp": "2021-07-18T12:50:15.376Z",
+        "recipient": {
+            "type": "controller"
+        },
+        "payload": 40.63426208496094
+    },
+    {
+        "interactionId": 3,
+        "operation": "invokeaction",
+        "affordance": {
+            "type": "action",
+            "name": "clear"
+        },
+        "messagePairId": 2,
+        "timeStamp": "2021-07-18T12:50:15.400Z",
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat2"
+        }
+    },
+    {
+        "interactionId": 4,
+        "operation": "invokeaction",
+        "affordance": {
+            "type": "action",
+            "name": "showMessage"
+        },
+        "messagePairId": 3,
+        "timeStamp": "2021-07-18T12:50:15.465Z",
+        "recipient": {
+            "type": "thing",
+            "thingId": "urn:uuid:aeb3ca28-9635-4b73-ac95-a21dffb6ec88",
+            "thingTitle": "SenseHat2"
+        }
+    }
+]
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 4 },
+    { interactionId: 3 }
+  ]
+]

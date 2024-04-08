@@ -1,0 +1,182 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+   {
+      "interactionId":1,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"humidity"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-001",
+         "thingTitle":"SenseHat1"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-14T10:07:48.320"
+   },
+   {
+      "interactionId":2,
+      "payload":32.317474365234375,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-14T10:07:48.331"
+   },
+   {
+      "interactionId":3,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"showMessage"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-001",
+         "thingTitle":"SenseHat1"
+      },
+      "messagePairId":2,
+      "timeStamp":"2021-07-14T10:07:56.499"
+   },
+   {
+      "interactionId":4,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"pressure"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-002",
+         "thingTitle":"SenseHat2"
+      },
+      "messagePairId":3,
+      "timeStamp":"2021-07-14T10:07:56.785"
+   },
+   {
+      "interactionId":5,
+      "payload":955.858154296875,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":3,
+      "timeStamp":"2021-07-14T10:07:56.785"
+   },
+   {
+      "interactionId":6,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"showMessage"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-002",
+         "thingTitle":"SenseHat2"
+      },
+      "messagePairId":4,
+      "timeStamp":"2021-07-14T10:08:06.833"
+   },
+   {
+      "interactionId":7,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"temperature"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-003",
+         "thingTitle":"SenseHat3"
+      },
+      "messagePairId":5,
+      "timeStamp":"2021-07-14T10:08:07.135"
+   },
+   {
+      "interactionId":8,
+      "payload":41.2449836730957,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":5,
+      "timeStamp":"2021-07-14T10:08:07.135"
+   },
+   {
+      "interactionId":9,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"showMessage"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-003",
+         "thingTitle":"SenseHat3"
+      },
+      "messagePairId":6,
+      "timeStamp":"2021-07-14T10:08:14.532"
+   },
+   {
+      "interactionId":10,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"gyro"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-004",
+         "thingTitle":"SenseHat4"
+      },
+      "messagePairId":7,
+      "timeStamp":"2021-07-14T10:08:14.820"
+   },
+   {
+      "interactionId":11,
+      "payload":{
+         "x":0.0019253529608249664,
+         "y":0.0007783817127346992,
+         "z":-0.0001559928059577942
+      },
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":7,
+      "timeStamp":"2021-07-14T10:08:14.820"
+   },
+   {
+      "interactionId":12,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"showMessage"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-sensehat-004",
+         "thingTitle":"SenseHat4"
+      },
+      "messagePairId":8,
+      "timeStamp":"2021-07-14T10:08:20.679"
+   }
+]
+
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+    { interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+	{ interactionId: 10 },
+	{ interactionId: 11 },
+	{ interactionId: 12 }
+  ]
+]

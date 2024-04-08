@@ -1,0 +1,153 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+   {
+      "interactionId":1,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"panPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-18T16:25:25.289"
+   },
+   {
+      "interactionId":2,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":1,
+      "timeStamp":"2021-07-18T16:25:25.290"
+   },
+   {
+      "interactionId":3,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"panTo"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":2,
+      "timeStamp":"2021-07-18T16:25:25.293"
+   },
+   {
+      "interactionId":4,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"tiltPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":5,
+      "timeStamp":"2021-07-18T16:25:25.623"
+   },
+   {
+      "interactionId":5,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":5,
+      "timeStamp":"2021-07-18T16:25:25.623"
+   },
+   {
+      "interactionId":6,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"tiltTo"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:1",
+         "thingTitle":"PanTilt1"
+      },
+      "messagePairId":6,
+      "timeStamp":"2021-07-18T16:25:25.625"
+   },
+   {
+      "interactionId":7,
+      "operation":"readproperty",
+      "affordance":{
+         "type":"property",
+         "name":"tiltPosition"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"esi:pantilt:2",
+         "thingTitle":"PanTilt2"
+      },
+      "messagePairId":7,
+      "timeStamp":"2021-07-18T16:25:25.787"
+   },
+   {
+      "interactionId":8,
+      "payload":0,
+      "recipient":{
+         "type":"controller"
+      },
+      "messagePairId":7,
+      "timeStamp":"2021-07-18T16:25:25.787"
+   },
+   {
+      "interactionId":9,
+      "operation":"invokeaction",
+      "affordance":{
+         "type":"action",
+         "name":"writeDisplay"
+      },
+      "recipient":{
+         "type":"thing",
+         "thingId":"urn:dev:ops:32473-rainbowhat-002",
+         "thingTitle":"RainbowHAT2"
+      },
+      "messagePairId":8,
+      "timeStamp":"2021-07-18T16:25:25.798"
+   }
+]
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+    { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+	{ interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+	{ interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+	{ interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+    { interactionId: 7 },
+    { interactionId: 8 },
+	{ interactionId: 9 },
+  ]
+]

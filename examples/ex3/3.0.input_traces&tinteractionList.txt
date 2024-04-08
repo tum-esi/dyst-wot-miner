@@ -1,0 +1,188 @@
+//Input: Traces and interactionList example 3
+let interactionList = [
+  {
+    interactionId: 1,
+    operation: "readproperty",
+    affordance: {
+      type: "property",
+      name: "bool",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 1,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 2,
+    recipient: {
+      type: "controller",
+    },
+    Payload: "response",
+    messagePairId: 1,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 3,
+    operation: "writeproperty",
+    affordance: {
+      type: "property",
+      name: "num",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 2,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 4,
+    operation: "readproperty",
+    affordance: {
+      type: "property",
+      name: "int",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 3,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 5,
+    recipient: {
+      type: "controller",
+    },
+    Payload: "response",
+    messagePairId: 3,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 6,
+    operation: "invokeaction",
+    affordance: {
+      type: "action",
+      name: "int-string",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 4,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  
+  {
+    interactionId: 7,
+    operation: "readproperty",
+    affordance: {
+      type: "property",
+      name: "object",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 5,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 8,
+    recipient: {
+      type: "controller",
+    },
+    Payload: "response",
+    messagePairId: 5,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 9,
+    operation: "invokeaction",
+    affordance: {
+      type: "action",
+      name: "obj-void",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 6,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  
+  {
+    interactionId: 10,
+    operation: "subscribeevent",
+    affordance: {
+      type: "event",
+      name: "on-bool",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 7,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 11,
+    recipient: {
+      type: "controller",
+    },
+    Payload: "data-pushed",
+    messagePairId: 7,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+  {
+    interactionId: 12,
+    operation: "writeproperty",
+    affordance: {
+      type: "property",
+      name: "object",
+    },
+    recipient: {
+      type: "thing",
+      thingId: "2",
+      thingTitle: "TestThing",
+    },
+    messagePairId: 8,
+    timeStamp: "2021-02-04T03:04:16.993552107Z",
+  },
+];
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	  { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+	  { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+	  { interactionId: 4 },
+    { interactionId: 5 },
+    { interactionId: 6 },
+    { interactionId: 7 },
+    { interactionId: 8 },
+    { interactionId: 9 },
+  ],
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+    { interactionId: 10 },
+    { interactionId: 11 },
+	  { interactionId: 12 },
+  ],
+];

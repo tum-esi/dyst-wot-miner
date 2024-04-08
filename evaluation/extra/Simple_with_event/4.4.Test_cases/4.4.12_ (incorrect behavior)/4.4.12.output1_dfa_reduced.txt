@@ -1,0 +1,26 @@
+{
+  name: "2_incorrect",
+  states: [
+    {
+      label: "·0·",
+      isFinal: false,
+      isInitial: true,
+      transitions: [
+        {
+          loop: false,
+          to: "·3·",
+          symbol: [
+            "·1·3·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·3·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+  ],
+}

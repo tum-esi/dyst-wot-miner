@@ -1,0 +1,56 @@
+[
+  {
+    "interactionId": 1,
+    "operation": "readproperty",
+    "affordance": {
+      "type": "property",
+      "name": "temperature"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3"
+    },
+    "messagePairId": 1,
+    "timeStamp": "2021-06-29T17:38:32.72"
+  },
+  {
+    "interactionId": 2,
+    "recipient": {
+      "type": "controller"
+    },
+    "payload": 43.484954833984375,
+    "messagePairId": 1,
+    "timeStamp": "2021-06-29T17:38:32.186"
+  },
+  {
+    "interactionId": 3,
+    "operation": "invokeaction",
+    "affordance": {
+      "type": "action",
+      "name": "showMessage"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3"
+    }
+    "messagePairId": 2,
+    "timeStamp": "2021-06-29T17:38:32.187"
+  },
+  {
+    "interactionId": 4,
+    "operation": "invokeaction",
+    "affordance": {
+      "type": "action",
+      "name": "clear"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3"
+    },
+    "messagePairId": 3,
+    "timeStamp": "2021-06-29T17:38:42.204"
+  }
+]

@@ -1,0 +1,89 @@
+{
+  name: "dfa",
+  states: [
+    {
+      label: "·0·",
+      isFinal: false,
+      isInitial: true,
+      transitions: [
+        {
+          loop: false,
+          to: "·3·",
+          symbol: [
+            "·1·2·3·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·3·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·10·",
+          symbol: [
+            "·4·5·6·10·",
+          ],
+        },
+        {
+          loop: false,
+          to: "·10·",
+          symbol: [
+            "·7·8·9·10·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·10·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·12·",
+          symbol: [
+            "·11·12·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·12·",
+      isFinal: false,
+      isInitial: false,
+      transitions: [
+        {
+          loop: false,
+          to: "·15·",
+          symbol: [
+            "·13·14·15·",
+          ],
+        },
+        {
+          loop: false,
+          to: "·18·",
+          symbol: [
+            "·16·17·18·",
+          ],
+        },
+      ],
+    },
+    {
+      label: "·15·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+    {
+      label: "·18·",
+      isFinal: true,
+      isInitial: false,
+      transitions: [
+      ],
+    },
+  ],
+}

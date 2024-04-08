@@ -1,0 +1,57 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+alt variable unknown
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "error"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : confirmation
+            "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "VirtualCoffeeMachine" : invokeAction: "abort"
+        end
+    end
+else else
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : response
+            deactivate "VirtualCoffeeMachine"
+        end
+        par
+            "Agent" -> "VirtualCoffeeMachine" : invokeAction: "brew"
+        end
+    end
+    loop 3x
+        group strict
+            par
+                "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+                activate "VirtualCoffeeMachine"
+                "VirtualCoffeeMachine" --> "Agent" : response
+                deactivate "VirtualCoffeeMachine"
+            end
+            par
+                "Agent" -> "VirtualCoffeeMachine" : invokeAction: "brew"
+            end
+        end
+    end
+end
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : readProperty: "binStatus"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : response
+        deactivate "VirtualCoffeeMachine"
+    end
+    par
+        "Agent" -> "VirtualCoffeeMachine" : invokeAction: "shutdown"
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

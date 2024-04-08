@@ -1,0 +1,76 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "error"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : confirmation
+        "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+    end
+    par
+        "Agent" -> "VirtualCoffeeMachine" : invokeAction: "abort"
+    end
+end
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : response
+        deactivate "VirtualCoffeeMachine"
+    end
+    par
+        "Agent" -> "VirtualCoffeeMachine" : invokeAction: "brew"
+    end
+end
+group strict
+    par
+        "Agent" -> "VirtualCoffeeMachine" : readProperty: "binStatus"
+        activate "VirtualCoffeeMachine"
+        "VirtualCoffeeMachine" --> "Agent" : response
+        deactivate "VirtualCoffeeMachine"
+    end
+    par
+        "Agent" -> "VirtualCoffeeMachine" : invokeAction: "shutdown"
+    end
+end
+loop 2x
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : subscribeEvent: "error"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : confirmation
+            "VirtualCoffeeMachine" ->> "Agent" : data-pushed
+        end
+        par
+            "Agent" -> "VirtualCoffeeMachine" : invokeAction: "abort"
+        end
+    end
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : readProperty: "waterStatus"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : response
+            deactivate "VirtualCoffeeMachine"
+        end
+        par
+            "Agent" -> "VirtualCoffeeMachine" : invokeAction: "brew"
+        end
+    end
+    group strict
+        par
+            "Agent" -> "VirtualCoffeeMachine" : readProperty: "binStatus"
+            activate "VirtualCoffeeMachine"
+            "VirtualCoffeeMachine" --> "Agent" : response
+            deactivate "VirtualCoffeeMachine"
+        end
+        par
+            "Agent" -> "VirtualCoffeeMachine" : invokeAction: "shutdown"
+        end
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml

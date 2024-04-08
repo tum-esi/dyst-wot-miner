@@ -1,0 +1,4 @@
+Test case 1: Correct traces
+Test case 2: Wrong control flow (less loop repetitions of first loop)
+Test case 3: Wrong control flow (no loop occur)
+Test case 4: Wrong control flow (missing one atomic MU)

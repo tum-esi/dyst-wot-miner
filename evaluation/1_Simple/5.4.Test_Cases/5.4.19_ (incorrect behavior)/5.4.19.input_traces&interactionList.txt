@@ -1,0 +1,67 @@
+//Input: Traces and interactionList 
+//messagePairId and timeStamp are not longer relevant, the order of interactions is shown in the traces array
+let interactionList = [
+   {
+    "timeStamp": "2021-07-19T13:18:57.763Z",
+    "affordance": {
+      "name": "temperature",
+      "type": "property"
+    },
+    "recipient": {
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3",
+      "type": "thing"
+    },
+    "operation": "readproperty",
+    "messagePairId": 1,
+    "interactionId": 1
+  },
+  {
+    "timeStamp": "2021-07-19T13:18:57.886Z",
+    "recipient": {
+      "type": "controller"
+    },
+    "messagePairId": 1,
+    "payload": 39.95415496826172,
+    "interactionId": 2
+  },
+  {
+    "timeStamp": "2021-07-19T13:18:57.889Z",
+    "affordance": {
+      "name": "showMessage",
+      "type": "action"
+    },
+    "recipient": {
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3",
+      "type": "thing"
+    },
+    "operation": "invokeaction",
+    "messagePairId": 2,
+    "interactionId": 3
+  },
+  {
+    "timeStamp": "2021-07-19T13:19:07.896Z",
+    "affordance": {
+      "name": "clear",
+      "type": "action"
+    },
+    "recipient": {
+      "thingId": "urn:dev:ops:32473-sensehat-003",
+      "thingTitle": "SenseHat3",
+      "type": "thing"
+    },
+    "operation": "invokeaction",
+    "messagePairId": 3,
+    "interactionId": 4
+  }
+]
+//Order of interactions in each scenario (1 scenario)
+let traces = [
+  [
+    { interactionId: 1 },
+    { interactionId: 2 },
+    { interactionId: 3 },
+	{ interactionId: 4 }
+  ]
+]

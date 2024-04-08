@@ -1,0 +1,232 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:PanTilt1PanTilt2RainbowHAT1RainbowHAT2:",
+    "@type": "Thing",
+    "title": "loops",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {
+        "PanTilt1": {
+            "$id": "#PanTilt1",
+            "base": "example://-",
+            "properties": {
+                "panPosition": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt1/properties/panPosition",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                },
+                "tiltPosition": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt1/properties/tiltPosition",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "panTo": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt1/actions/panTo",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                },
+                "tiltTo": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt1/actions/tiltTo",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "PanTilt2": {
+            "$id": "#PanTilt2",
+            "base": "example://-",
+            "properties": {
+                "panPosition": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt2/properties/panPosition",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                },
+                "tiltPosition": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/PanTilt2/properties/tiltPosition",
+                            "htv:methodName": "GET",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {},
+            "events": {}
+        },
+        "RainbowHAT1": {
+            "$id": "#RainbowHAT1",
+            "base": "example://-",
+            "properties": {},
+            "actions": {
+                "writeDisplay": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/RainbowHAT1/actions/writeDisplay",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "RainbowHAT2": {
+            "$id": "#RainbowHAT2",
+            "base": "example://-",
+            "properties": {},
+            "actions": {
+                "writeDisplay": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/RainbowHAT2/actions/writeDisplay",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        }
+    },
+    "variables": {},
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "loop": {
+                "type": "logical",
+                "defaultInput": 4,
+                "path": [
+                    {
+                        "receive": [
+                            {
+                                "form": {
+                                    "$ref": "#PanTilt1/properties/panPosition/forms/0"
+                                },
+                                "op": "readproperty"
+                            }
+                        ],
+                        "send": [
+                            {
+                                "form": {
+                                    "$ref": "#PanTilt1/actions/panTo/forms/0"
+                                },
+                                "op": "invokeaction"
+                            }
+                        ],
+                        "breakOnDataPushed": false
+                    }
+                ]
+            }
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#PanTilt2/properties/panPosition/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#RainbowHAT1/actions/writeDisplay/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "loop": {
+                "type": "logical",
+                "defaultInput": 4,
+                "path": [
+                    {
+                        "receive": [
+                            {
+                                "form": {
+                                    "$ref": "#PanTilt1/properties/tiltPosition/forms/0"
+                                },
+                                "op": "readproperty"
+                            }
+                        ],
+                        "send": [
+                            {
+                                "form": {
+                                    "$ref": "#PanTilt1/actions/tiltTo/forms/0"
+                                },
+                                "op": "invokeaction"
+                            }
+                        ],
+                        "breakOnDataPushed": false
+                    }
+                ]
+            }
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#PanTilt2/properties/tiltPosition/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#RainbowHAT2/actions/writeDisplay/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        }
+    ]
+}

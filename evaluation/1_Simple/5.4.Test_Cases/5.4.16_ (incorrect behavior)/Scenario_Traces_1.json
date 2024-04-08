@@ -1,0 +1,56 @@
+[
+  {
+    "interactionId": 1,
+    "operation": "readproperty",
+    "affordance": {
+      "type": "property",
+      "name": "temperature"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-002",
+      "thingTitle": "SenseHat2"
+    },
+    "messagePairId": 1,
+    "timeStamp": "2021-07-19T21:19:09.986Z"
+  },
+  {
+    "interactionId": 2,
+    "payload": 40.48302459716797,
+    "recipient":{
+         "type":"controller"
+    },
+    "messagePairId": 1,
+    "timeStamp": "2021-07-19T21:19:10.432Z"
+  },
+  {
+    "interactionId": 3,
+    "operation": "invokeaction",
+    "affordance": {
+      "type": "action",
+      "name": "showMessage"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-002",
+      "thingTitle": "SenseHat2"
+    },
+    "messagePairId": 2,
+    "timeStamp": "2021-07-19T21:19:10.435Z"
+  },
+  {
+    "interactionId": 4,
+    "operation": "invokeaction",
+    "affordance": {
+      "type": "action",
+      "name": "clear"
+    },
+    "recipient": {
+      "type": "thing",
+      "thingId": "urn:dev:ops:32473-sensehat-002",
+      "thingTitle": "SenseHat2"
+    },
+    "messagePairId": 3,
+    "timeStamp": "2021-07-19T21:19:28.404Z"
+  }
+]

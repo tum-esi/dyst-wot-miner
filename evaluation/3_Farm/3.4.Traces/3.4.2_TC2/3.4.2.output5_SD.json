@@ -1,0 +1,289 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "de:tum:ei:esi:MashDE:SenseHat2SenseHat3UnicornPHAT1Sprinkler1SoilSensor0SoilSensor1:",
+    "@type": "Thing",
+    "title": "example",
+    "description": "a mashup generated with MashDE",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "nosec_sc",
+    "things": {        
+        "SenseHat2": {
+            "$id": "#SenseHat2",
+            "base": "example://-",
+            "properties": {
+                "pixels": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat2/properties/pixels",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat2/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "SenseHat3": {
+            "$id": "#SenseHat3",
+            "base": "example://-",
+            "properties": {},
+            "actions": {
+                "showMessage": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/SenseHat3/actions/showMessage",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },     
+        "UnicornPHAT1": {
+            "$id": "#UnicornPHAT1",
+            "base": "example://-",
+            "properties": {
+                "pixels": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/UnicornPHAT1/properties/pixels",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "fillColor": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/UnicornPHAT1/actions/fillColor",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                },
+                "fillRandom": {
+                    "forms": [
+                        {
+                            "contentType": "application/json",
+                            "href": "https://esiremotelab.esi.ei.tum.de:8081/UnicornPHAT1/actions/fillRandom",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "Sprinkler1": {
+            "$id": "#Sprinkler1",
+            "base": "example://-",
+            "properties": {
+                "status": {
+                    "forms": [
+                        {
+                            "href": "http://arces143100.arces.unibo.it/assets/farm/sprinkler1/status",
+                            "contentType": "application/json",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {
+                "stopSprinkler": {
+                    "forms": [
+                        {
+                            "href": "http://arces143100.arces.unibo.it/assets/farm/sprinkler1/stopSprinkler",
+                            "contentType": "application/json",
+                            "htv:methodName": "POST",
+                            "op": "invokeaction"
+                        }
+                    ]
+                }
+            },
+            "events": {}
+        },
+        "SoilSensor0": {
+            "$id": "#SoilSensor0",
+            "base": "example://-",
+            "properties": {
+                "moisture": {
+                    "forms": [
+                        {
+                            "href": "http://arces143100.arces.unibo.it/assets/farm/SoilSensor0/moisture",
+                            "contentType": "application/json",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {},
+            "events": {}
+        },
+        "SoilSensor1": {
+            "$id": "#SoilSensor1",
+            "base": "example://-",
+            "properties": {
+                "moisture": {
+                    "forms": [
+                        {
+                            "href": "http://arces143100.arces.unibo.it/assets/farm/SoilSensor1/moisture",
+                            "contentType": "application/json",
+                            "op": "readproperty"
+                        }
+                    ]
+                }
+            },
+            "actions": {},
+            "events": {}
+        }
+    },
+    "variables": {
+        "unknown": {
+            "type": "boolean"
+        }
+    },
+    "properties": {},
+    "actions": {},
+    "functions": {},
+    "events": {},
+    "path": [
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#Sprinkler1/properties/status/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#UnicornPHAT1/actions/fillColor/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#SoilSensor0/properties/moisture/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#SenseHat2/actions/showMessage/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "receive": [
+                {
+                    "form": {
+                        "$ref": "#UnicornPHAT1/properties/pixels/forms/0"
+                    },
+                    "op": "readproperty"
+                }
+            ],
+            "send": [
+                {
+                    "form": {
+                        "$ref": "#UnicornPHAT1/actions/fillRandom/forms/0"
+                    },
+                    "op": "invokeaction"
+                }
+            ],
+            "breakOnDataPushed": false
+        },
+        {
+            "case": {
+                "if": {
+                    "get": {
+                        "$ref": "#/variables/unknown"
+                    }
+                },
+                "then": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#SenseHat2/properties/pixels/forms/0"
+                                    },
+                                    "op": "readproperty"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#Sprinkler1/actions/stopSprinkler/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        }
+                    ]
+                },
+                "else": {
+                    "path": [
+                        {
+                            "receive": [
+                                {
+                                    "form": {
+                                        "$ref": "#SoilSensor1/properties/moisture/forms/0"
+                                    },
+                                    "op": "readproperty"
+                                }
+                            ],
+                            "send": [
+                                {
+                                    "form": {
+                                        "$ref": "#SenseHat3/actions/showMessage/forms/0"
+                                    },
+                                    "op": "invokeaction"
+                                }
+                            ],
+                            "breakOnDataPushed": false
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

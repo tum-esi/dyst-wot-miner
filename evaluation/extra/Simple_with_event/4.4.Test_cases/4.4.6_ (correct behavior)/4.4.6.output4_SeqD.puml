@@ -1,0 +1,19 @@
+@startuml topexample
+[->"Agent": top:example()
+activate "Agent"
+
+group strict
+    par
+        "Agent" -> "Virtual-Coffee-Machine_1_6" : subscribeEvent: "maintenance"
+        activate "Virtual-Coffee-Machine_1_6"
+        "Virtual-Coffee-Machine_1_6" --> "Agent" : confirmation
+        "Virtual-Coffee-Machine_1_6" ->> "Agent" : data-pushed
+    end
+    par
+        "Agent" -> "Virtual-Coffee-Machine_1_6" : invokeAction: "shutdown"
+    end
+end
+
+[<-"Agent"
+deactivate "Agent"
+@enduml
