@@ -23,7 +23,7 @@
     "wot-typescript-definitions": "0.7.1-SNAPSHOT.1"
   },
   "dependencies": {
-    "nfa-to-dfa": "1.0.7",
+    "nfa-to-dfa": "git+https://github.com/fcannizzaro/nfa-to-dfa.git",
     "noam": "git+https://github.com/izuzak/noam.git",
     "system-description": "git+https://github.com/tum-esi/wot-system-description.git"
   }

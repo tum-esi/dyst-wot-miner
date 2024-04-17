@@ -198,7 +198,10 @@ let traces = [
 
 //Generate DFA
 let dfa = generateFA(traces);
+console.log(dfa)
 //Generate Regular expression
 let regex = generateRegex(dfa);
+console.log(regex)
 //Generate Mashup Logic
 let outMashupLogic = generateMUlogic(regex, interactionList, traces);
+console.log(outMashupLogic)
